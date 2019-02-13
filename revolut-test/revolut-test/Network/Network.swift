@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Result<T, U> where T:Decodable, U:Error  {
+enum Result<T, U> where T: Decodable, U: Error {
     case success(T)
     case failure(U)
 }
@@ -39,6 +39,10 @@ class Requester {
         }
         
         _ = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            if error != nil {
+                completion(nil, .requestFailed)
+                return
+            }
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(nil, .requestFailed)
                 return
