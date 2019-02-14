@@ -48,13 +48,16 @@
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="textFieldTextChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="VvP-rO-R0v"/>
                         </connections>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yo-1B-pov">
                         <rect key="frame" x="350" y="55.5" width="13" height="1"/>
-                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.749" green="0.74901968240737915" blue="0.74901968240737915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="pLi-nZ-RCw"/>
                         </constraints>
@@ -80,6 +83,7 @@
                 <outlet property="completeTitleLabel" destination="6jT-hl-tVi" id="lF8-HT-JSc"/>
                 <outlet property="logoImageView" destination="HkM-rn-Vht" id="tpY-6l-ggV"/>
                 <outlet property="priceTextField" destination="zRA-We-Oy8" id="uYf-vG-8Fh"/>
+                <outlet property="underlineView" destination="9yo-1B-pov" id="43E-7s-vvu"/>
             </connections>
             <point key="canvasLocation" x="188.80000000000001" y="177.21139430284859"/>
         </tableViewCell>

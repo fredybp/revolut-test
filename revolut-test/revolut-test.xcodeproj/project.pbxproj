@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B61BA20F220FC74700B9D245 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61BA20E220FC74700B9D245 /* ListView.swift */; };
-		B641F007220BD3DE0016532E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641F006220BD3DE0016532E /* Network.swift */; };
+		B641F007220BD3DE0016532E /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641F006220BD3DE0016532E /* Business.swift */; };
+		B65C053C2214A9D200D03FF7 /* revolut_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65C053B2214A9D200D03FF7 /* revolut_testUITests.swift */; };
+		B65C05462215099600D03FF7 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65C05452215099600D03FF7 /* Provider.swift */; };
 		B6EFCCC8220BB3570079197D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFCCC7220BB3570079197D /* AppDelegate.swift */; };
 		B6EFCCCA220BB3570079197D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFCCC9220BB3570079197D /* ListViewController.swift */; };
 		B6EFCCCD220BB3570079197D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6EFCCCB220BB3570079197D /* Main.storyboard */; };
@@ -18,10 +20,16 @@
 		B6EFCCED220BCA590079197D /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EFCCEC220BCA590079197D /* CurrencyModel.swift */; };
 		B6F2A091220FF480000D207D /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F2A08F220FF480000D207D /* CurrencyTableViewCell.xib */; };
 		B6F2A092220FF480000D207D /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2A090220FF480000D207D /* CurrencyTableViewCell.swift */; };
-		B6F2A09422126B7E000D207D /* revolut_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2A09322126B7E000D207D /* revolut_testUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B65C053E2214A9D200D03FF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6EFCCBC220BB3570079197D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6EFCCC3220BB3570079197D;
+			remoteInfo = "revolut-test";
+		};
 		B6EFCCD9220BB35A0079197D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B6EFCCBC220BB3570079197D /* Project object */;
@@ -33,8 +41,12 @@
 
 /* Begin PBXFileReference section */
 		B61BA20E220FC74700B9D245 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		B641F006220BD3DE0016532E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		B6EFCCC4220BB3570079197D /* revolut-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "revolut-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B641F006220BD3DE0016532E /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		B65C05392214A9D200D03FF7 /* revolut-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "revolut-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B65C053B2214A9D200D03FF7 /* revolut_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = revolut_testUITests.swift; sourceTree = "<group>"; };
+		B65C053D2214A9D200D03FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B65C05452215099600D03FF7 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		B6EFCCC4220BB3570079197D /* revolut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = revolut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6EFCCC7220BB3570079197D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6EFCCC9220BB3570079197D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B6EFCCCC220BB3570079197D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,10 +59,16 @@
 		B6EFCCEC220BCA590079197D /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; usesTabs = 1; };
 		B6F2A08F220FF480000D207D /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 		B6F2A090220FF480000D207D /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
-		B6F2A09322126B7E000D207D /* revolut_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = revolut_testUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B65C05362214A9D200D03FF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6EFCCC1220BB3570079197D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,9 +115,35 @@
 		B641F005220BD3CD0016532E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B641F006220BD3DE0016532E /* Network.swift */,
+				B65C05442215092F00D03FF7 /* Provider */,
+				B65C05432215091300D03FF7 /* Business */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		B65C053A2214A9D200D03FF7 /* revolut-testUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B65C053B2214A9D200D03FF7 /* revolut_testUITests.swift */,
+				B65C053D2214A9D200D03FF7 /* Info.plist */,
+			);
+			path = "revolut-testUITests";
+			sourceTree = "<group>";
+		};
+		B65C05432215091300D03FF7 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				B641F006220BD3DE0016532E /* Business.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		B65C05442215092F00D03FF7 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				B65C05452215099600D03FF7 /* Provider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		B6EFCCBB220BB3570079197D = {
@@ -107,6 +151,7 @@
 			children = (
 				B6EFCCC6220BB3570079197D /* revolut-test */,
 				B6EFCCDB220BB35A0079197D /* revolut-testTests */,
+				B65C053A2214A9D200D03FF7 /* revolut-testUITests */,
 				B6EFCCC5220BB3570079197D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,8 +159,9 @@
 		B6EFCCC5220BB3570079197D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6EFCCC4220BB3570079197D /* revolut-test.app */,
+				B6EFCCC4220BB3570079197D /* revolut.app */,
 				B6EFCCD8220BB35A0079197D /* revolut-testTests.xctest */,
+				B65C05392214A9D200D03FF7 /* revolut-testUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,7 +187,6 @@
 			children = (
 				B6EFCCDC220BB35A0079197D /* revolut_testTests.swift */,
 				B6EFCCDE220BB35A0079197D /* Info.plist */,
-				B6F2A09322126B7E000D207D /* revolut_testUITests.swift */,
 			);
 			path = "revolut-testTests";
 			sourceTree = "<group>";
@@ -157,9 +202,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B6EFCCC3220BB3570079197D /* revolut-test */ = {
+		B65C05382214A9D200D03FF7 /* revolut-testUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6EFCCE1220BB35A0079197D /* Build configuration list for PBXNativeTarget "revolut-test" */;
+			buildConfigurationList = B65C05402214A9D200D03FF7 /* Build configuration list for PBXNativeTarget "revolut-testUITests" */;
+			buildPhases = (
+				B65C05352214A9D200D03FF7 /* Sources */,
+				B65C05362214A9D200D03FF7 /* Frameworks */,
+				B65C05372214A9D200D03FF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B65C053F2214A9D200D03FF7 /* PBXTargetDependency */,
+			);
+			name = "revolut-testUITests";
+			productName = "revolut-testUITests";
+			productReference = B65C05392214A9D200D03FF7 /* revolut-testUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		B6EFCCC3220BB3570079197D /* revolut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6EFCCE1220BB35A0079197D /* Build configuration list for PBXNativeTarget "revolut" */;
 			buildPhases = (
 				B6EFCCC0220BB3570079197D /* Sources */,
 				B6EFCCC1220BB3570079197D /* Frameworks */,
@@ -170,9 +233,9 @@
 			);
 			dependencies = (
 			);
-			name = "revolut-test";
+			name = revolut;
 			productName = "revolut-test";
-			productReference = B6EFCCC4220BB3570079197D /* revolut-test.app */;
+			productReference = B6EFCCC4220BB3570079197D /* revolut.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B6EFCCD7220BB35A0079197D /* revolut-testTests */ = {
@@ -203,6 +266,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Frederico Bechara De Paola";
 				TargetAttributes = {
+					B65C05382214A9D200D03FF7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = B6EFCCC3220BB3570079197D;
+					};
 					B6EFCCC3220BB3570079197D = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -225,13 +292,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B6EFCCC3220BB3570079197D /* revolut-test */,
+				B6EFCCC3220BB3570079197D /* revolut */,
 				B6EFCCD7220BB35A0079197D /* revolut-testTests */,
+				B65C05382214A9D200D03FF7 /* revolut-testUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B65C05372214A9D200D03FF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6EFCCC2220BB3570079197D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,12 +349,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B65C05352214A9D200D03FF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65C053C2214A9D200D03FF7 /* revolut_testUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B6EFCCC0220BB3570079197D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B641F007220BD3DE0016532E /* Network.swift in Sources */,
+				B641F007220BD3DE0016532E /* Business.swift in Sources */,
 				B6EFCCCA220BB3570079197D /* ListViewController.swift in Sources */,
+				B65C05462215099600D03FF7 /* Provider.swift in Sources */,
 				B61BA20F220FC74700B9D245 /* ListView.swift in Sources */,
 				B6EFCCC8220BB3570079197D /* AppDelegate.swift in Sources */,
 				B6F2A092220FF480000D207D /* CurrencyTableViewCell.swift in Sources */,
@@ -292,16 +376,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6EFCCDD220BB35A0079197D /* revolut_testTests.swift in Sources */,
-				B6F2A09422126B7E000D207D /* revolut_testUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B65C053F2214A9D200D03FF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6EFCCC3220BB3570079197D /* revolut */;
+			targetProxy = B65C053E2214A9D200D03FF7 /* PBXContainerItemProxy */;
+		};
 		B6EFCCDA220BB35A0079197D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B6EFCCC3220BB3570079197D /* revolut-test */;
+			target = B6EFCCC3220BB3570079197D /* revolut */;
 			targetProxy = B6EFCCD9220BB35A0079197D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -326,6 +414,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B65C05412214A9D200D03FF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UE2NN5U8D4;
+				INFOPLIST_FILE = "revolut-testUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fred.revolut-testUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = revolut;
+			};
+			name = Debug;
+		};
+		B65C05422214A9D200D03FF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UE2NN5U8D4;
+				INFOPLIST_FILE = "revolut-testUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fred.revolut-testUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = revolut;
+			};
+			name = Release;
+		};
 		B6EFCCDF220BB35A0079197D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -495,7 +623,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/revolut-test.app/revolut-test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/revolut.app/revolut";
 			};
 			name = Debug;
 		};
@@ -516,13 +644,22 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/revolut-test.app/revolut-test";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/revolut.app/revolut";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B65C05402214A9D200D03FF7 /* Build configuration list for PBXNativeTarget "revolut-testUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B65C05412214A9D200D03FF7 /* Debug */,
+				B65C05422214A9D200D03FF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B6EFCCBF220BB3570079197D /* Build configuration list for PBXProject "revolut-test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -532,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6EFCCE1220BB35A0079197D /* Build configuration list for PBXNativeTarget "revolut-test" */ = {
+		B6EFCCE1220BB35A0079197D /* Build configuration list for PBXNativeTarget "revolut" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6EFCCE2220BB35A0079197D /* Debug */,

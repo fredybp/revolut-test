@@ -22,6 +22,7 @@ class CurrencyTableViewCell: UITableViewCell {
     @IBOutlet weak var abreviationLabel: UILabel!
     @IBOutlet weak var completeTitleLabel: UILabel!
     @IBOutlet weak var priceTextField: UITextField!
+    @IBOutlet weak var underlineView: UIView!
     
     public var delegate: CurrencyCellTextDelegate?
     var originalModel: Rates?
@@ -32,16 +33,11 @@ class CurrencyTableViewCell: UITableViewCell {
         logoImageView.layer.cornerRadius = logoImageView.frame.size.width / 2
         logoImageView.clipsToBounds = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func setup(model: Rates, multiplier: Double = 1) {
         abreviationLabel.text = model.currency
         completeTitleLabel.text = model.getSubtitle()
+        logoImageView.image = model.getImage()
         priceTextField.text = String(format: "%.2f", model.value * multiplier)
         originalModel = model
     }
@@ -63,11 +59,13 @@ class CurrencyTableViewCell: UITableViewCell {
 extension CurrencyTableViewCell: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         delegate?.becameFirstResponder(cell: self)
+        underlineView.backgroundColor = #colorLiteral(red: 0.5379999876, green: 0.7820000052, blue: 1, alpha: 1)
         return true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         delegate?.stoppedBeingFirstResponder(cell: self)
+        underlineView.backgroundColor = #colorLiteral(red: 0.7490000129, green: 0.7490000129, blue: 0.7490000129, alpha: 1)
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

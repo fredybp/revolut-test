@@ -6,6 +6,8 @@
 //  Copyright © 2019 Frederico Bechara De Paola. All rights reserved.
 //
 
+import UIKit
+
 struct CurrencyModel: Decodable {
 	var base: String
 	var rates: [String: Double]
@@ -71,4 +73,13 @@ struct Rates {
 		
 		return dict[currency] ?? ""
 	}
+	
+	func getImage() -> UIImage {
+		if let image = UIImage(named: currency) {
+			return image
+		} else {
+			return UIImage(named: "EUR")!
+		}
+	}
+	
 }
