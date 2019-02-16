@@ -8,13 +8,12 @@
 
 import UIKit
 
-protocol CurrencyCellTextDelegate {
+protocol CurrencyCellTextDelegate: class {
     func amountChanged(to amount: Double)
     func becameFirstResponder(cell: CurrencyTableViewCell)
     func stoppedBeingFirstResponder(cell: CurrencyTableViewCell)
     func newInput(value: Double)
 }
-
 
 class CurrencyTableViewCell: UITableViewCell {
 
@@ -24,7 +23,7 @@ class CurrencyTableViewCell: UITableViewCell {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var underlineView: UIView!
     
-    public var delegate: CurrencyCellTextDelegate?
+    public weak var delegate: CurrencyCellTextDelegate?
     var originalModel: Rates?
     
     override func awakeFromNib() {
@@ -68,11 +67,12 @@ extension CurrencyTableViewCell: UITextFieldDelegate {
         underlineView.backgroundColor = #colorLiteral(red: 0.7490000129, green: 0.7490000129, blue: 0.7490000129, alpha: 1)
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
             let textFieldText: NSString = (textField.text ?? "") as NSString
             let txtAfterUpdate = textFieldText.replacingCharacters(in: range, with: string) as NSString
             delegate?.newInput(value: txtAfterUpdate.doubleValue)
             return true
     }
 }
-

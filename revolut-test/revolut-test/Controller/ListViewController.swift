@@ -13,17 +13,16 @@ class ListViewController: UITableViewController {
     private var currencyList: CurrencyModel?
     private var base: Rates = Rates(currency: "EUR", value: 1)
     private var amountInputByUser: Double = 1
-    let rqtr = Requester()
+    var rqtr = Business(requester: Provider())
     var timer: Timer?
     var inputingData = false
+    let initialIndex = IndexPath(item: 0, section: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "CurrencyTableViewCell", bundle: nil), forCellReuseIdentifier: kReuseIdentifier)
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 94
-//        tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: kReuseIdentifier)
+        tableView.register(UINib(nibName: "CurrencyTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: kReuseIdentifier)
         setupRun()
     }
     
@@ -44,19 +43,23 @@ class ListViewController: UITableViewController {
     }
     
     private func loadData(completion: @escaping () -> Void) {
-        rqtr.base = base.currency
-        rqtr.request { (model, error) in
-            if let err = error {
-                print(err)
+        rqtr.getRates(base: base.currency, completion: { (model, error) in
+            if error != nil {
+                let alert = UIAlertController(title: "Sorry",
+                                              message: "Something went wrong, please try again later",
+                                              preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } else {
-                self.currencyList = model as? CurrencyModel
+                self.currencyList = model
             }
             completion()
-        }
+        })
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let listCell = tableView.dequeueReusableCell(withIdentifier: kReuseIdentifier) as? CurrencyTableViewCell, let ratesModel = currencyList?.orderedRates() else {
+        guard let listCell = tableView.dequeueReusableCell(withIdentifier: kReuseIdentifier) as? CurrencyTableViewCell,
+            let ratesModel = currencyList?.orderedRates() else {
             return UITableViewCell()
         }
         
@@ -89,9 +92,15 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         timer?.invalidate()
-        tableView.setContentOffset(.zero, animated: true)
         updateBase(at: indexPath)
-        tableView.moveRow(at: indexPath, to: IndexPath(item: 0, section: indexPath.section))
+        view.endEditing(true)
+        tableView.performBatchUpdates({
+            tableView.moveRow(at: indexPath, to: initialIndex)
+            tableView.scrollToRow(at: initialIndex, at: .top, animated: true)
+            if let cell = tableView.cellForRow(at: indexPath) as? CurrencyTableViewCell {
+                cell.priceTextField.becomeFirstResponder()
+            }
+        }, completion: nil)
         setupRun()
     }
     
@@ -99,11 +108,11 @@ class ListViewController: UITableViewController {
         guard let cell = tableView.cellForRow(at: index) as? CurrencyTableViewCell else {
             return
         }
+        amountInputByUser = 1
         base.currency = cell.abreviationLabel.text ?? ""
         base.value = (cell.priceTextField?.text as NSString?)?.doubleValue ?? 0
     }
 }
-
 
 extension ListViewController: CurrencyCellTextDelegate {
     
@@ -117,13 +126,21 @@ extension ListViewController: CurrencyCellTextDelegate {
     
     func stoppedBeingFirstResponder(cell: CurrencyTableViewCell) {
         inputingData = false
+        checkForCellOnTop(cell)
+    }
+    
+    func checkForCellOnTop(_ cell: CurrencyTableViewCell) {
+        if let indexOfCell = tableView.indexPath(for: cell), indexOfCell != initialIndex {
+            tableView(tableView, didSelectRowAt: indexOfCell)
+        }
     }
     
     func newInput(value: Double) {
         amountInputByUser = value
         
         for cell in tableView.visibleCells {
-            guard let currencyCell = cell as? CurrencyTableViewCell, let index = tableView.indexPath(for: currencyCell)  else { return }
+            guard let currencyCell = cell as? CurrencyTableViewCell,
+                let index = tableView.indexPath(for: currencyCell) else { return }
             if index != IndexPath(row: 0, section: 0) {
                 currencyCell.updateValue(to: amountInputByUser)
                 tableView.reloadRows(at: [index], with: .none)

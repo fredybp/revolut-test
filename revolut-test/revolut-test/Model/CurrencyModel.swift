@@ -12,22 +12,19 @@ struct CurrencyModel: Decodable {
 	var base: String
 	var rates: [String: Double]
 	var rateArray: [Rates] {
-		mutating get {
-			return orderedRates()
-		}
+		return orderedRates()
 	}
 	
-	mutating func orderedRates() -> [Rates] {
+	func orderedRates() -> [Rates] {
 		var ratesAsArray = [Rates]()
 		
-		for (_, dict) in rates.enumerated() {
+		for dict in rates {
 			ratesAsArray.append(Rates(currency: dict.key, value: dict.value))
 		}
 		
 		return ratesAsArray.sorted { $0.currency < $1.currency }
 	}
 	
-
 }
 
 struct Rates {
